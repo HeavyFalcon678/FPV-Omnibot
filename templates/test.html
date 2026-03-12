@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV Omnibot Control</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>FPV Omnibot Control</h1>
+    </header>
+
+    <div>
+        <button id="fwd" onclick="onForward()">Forward</button>
+        <button onclick="onBackward()">Reverse</button>
+        <button onclick="onLeft()">Left</button>
+        <button onclick="onRight()">Right</button>
+        <button onclick="onRotateLeft()">Rotate Left</button>
+        <button onclick="onRotateRight()">Rotate Right</button>
+        <br>
+        <button onclick="onForward()">Forward</button>
+        <button onclick="onForward()">Forward</button>
+        <button onclick="onForward()">Forward</button>
+        <button onclick="onForward()">Forward</button>
+    </div>
+
+</body>
+<script type="application/javascript">
+
+let currentMove = undefined;
+
+document.addEventListener('keydown', onKeypress)
+
+function onKeypress(event) {
+    console.log(event.key)
+    if (event.key == "w" || event.key == "W") {
+        document.getElementById("fwd").classList.add("active");
+        onForward();
+        setTimeout(() => {fwd.classList.remove("active");}, 200);
+    } else if (event.key == "s" || event.key == "S") {
+        onBackward();
+    } else if (event.key == "a" || event.key == "A") {
+        onLeft();
+    } else if (event.key == "d" || event.key == "D") {
+        onRight();
+    } else if (event.key == "q" || event.key == "Q") {
+        onRotateLeft();
+    } else if (event.key == "e" || event.key == "E") {
+        onRotateRight();
+    }
+}
+
+function onForward() {
+    console.log("Forward");
+    sendToPi("Forward");
+}
+
+function onBackward() {
+    console.log("Backward");
+    sendToPi("Backward");
+}
+
+function onLeft() {
+    console.log("Left");
+    sendToPi("Left");
+}
+
+function onRight() {
+    console.log("Right");
+    sendToPi("Right");
+}
+
+function onRotateLeft() {
+    console.log("Rotate Left");
+    sendToPi("Rotate Left");
+}
+
+function onRotateRight() {
+    console.log("Rotate Right");
+    sendToPi("Rotate Right");
+}
+
+
+function sendToPi(info) {
+    fetch('/control', {method:'Post',headers:{'Content-Type':'application/json'},body:JSON.stringify({info: info})})
+}
+
+</script>
+</html>

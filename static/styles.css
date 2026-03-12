@@ -1,0 +1,62 @@
+* {
+    background-color: #333333;
+    font-family: Gotham;
+}
+
+
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("fonts/Gotham-Medium.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+header {
+    background-color: #231f21;
+    width: 100%
+}
+
+h1 {
+    color: white;
+    background-color: #231f21;
+    width: 100%;
+    margin: 0;
+}
+
+button {
+    font-family: Gotham;
+    font-size: 15px;
+    background-color: #f99d3c;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 8rem;
+
+
+}
+
+button:active, button.active {
+    background-color: #f58539;
+}
+
+
+
+
+
+
+
+
+
+/*#f58539 - dark orange
+
+#f99d3c - medium orange
+
+#f99d3c - light orange
+
+#333333 - gray*/
