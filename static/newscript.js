@@ -137,12 +137,9 @@ function handleControls() {
         currentData.gripper = "None";
         removeActive("ff", gripperList);
     }
-
-
     
 
     if(currentData.move != previousData.move) sendToServer("Move", currentData.move)
-
     if (currentData.fast != previousData.fast) sendToServer("Fast", currentData.fast)
     if (currentData.fork != previousData.fork) sendToServer("Fork", currentData.fork);
     if (currentData.gripper != previousData.gripper) sendToServer("Gripper", currentData.gripper);
