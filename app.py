@@ -4,7 +4,7 @@ from gpiozero import Device, OutputDevice
 from gpiozero.pins.mock import MockFactory
 
 
-#Device.pin_factory = MockFactory()
+Device.pin_factory = MockFactory()
 
 rf1 = OutputDevice(4)
 rf2 = OutputDevice(17)
