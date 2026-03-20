@@ -4,6 +4,7 @@ from picamera2 import Picamera2
 from picamera2.encoders import MJPEGEncoder
 from picamera2.outputs import FileOutput
 import io
+import threading
 
 
 
@@ -25,30 +26,38 @@ rf6.value = 1
 rf7.value = 1
 rf8.value = 1
 
+class StreamingOutput:
+    def __init__(self):
+        self.frame = None
+        self.condition = threading.Condition()
+
+    def write(self, buf):
+        with self.condition:
+            self.frame = buf
+            self.condition.notify_all()
+
 
 app = Flask(__name__)
 
 picam2 = Picamera2()
 picam2.configure(picam2.create_video_configuration())
 
-stream = io.BytesIO()
-
+output = StreamingOutput()
+picam2.start()
 
 picam2.start_recording(
     MJPEGEncoder(),
-    FileOutput(stream)
+    FileOutput(output)
 )
 
 
 def generateFrames():
     while True:
-        stream.seek(0)
-        frame = stream.read()
+        with output.condition:
+                output.condition.wait()
+                frame = output.frame
 
         yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-
-        stream.seek(0)
-        stream.truncate()
 
 
 @app.route('/')
