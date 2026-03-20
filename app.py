@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request, Response
 from gpiozero import Device, OutputDevice
 from gpiozero.pins.mock import MockFactory
+from picamera2 import Picamera2
+import cv2
 
 
 Device.pin_factory = MockFactory()
@@ -27,9 +28,28 @@ rf8.value = 1
 
 app = Flask(__name__)
 
+picam2 = Picamera2()
+picam2.start()
+
+
+def generateFrames():
+    while True:
+        frame = picam2.capture_array()
+        ret, buffer = cv2.imencode('.jpg', frame)
+        frame = buffer.tobytes()
+        yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
 @app.route('/')
 def index():
     return render_template('test.html')
+
+
+@app.route('/video')
+def video():
+    return Response(generateFrames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 
 
 @app.route('/control', methods=['POST'])
