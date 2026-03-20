@@ -26,7 +26,7 @@ rf6.value = 1
 rf7.value = 1
 rf8.value = 1
 
-class StreamingOutput:
+class StreamingOutput(io.BufferedIOBase):
     def __init__(self):
         self.frame = None
         self.condition = threading.Condition()
