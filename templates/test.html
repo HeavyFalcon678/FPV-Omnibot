@@ -12,36 +12,41 @@
         <h1>FPV Omnibot Control</h1>
     </header>
 
-    <div id="controlContainer">
+    <main>
+        <div id="controlContainer">
 
-        <div id="moveContainer">
-            <h2 id="move">MOVE</h2>
-            <button id="fwdBtn" tabindex="-1" onmousedown="onPress('fwdBtn','w')" ontouchstart="onPress('fwdBtn','w')">🡱</button>
-            <button id="revBtn" tabindex="-1" onmousedown="onPress('revBtn','s')" ontouchstart="onPress('revBtn','s')">🡳</button>
-            <button id="lBtn" tabindex="-1" onmousedown="onPress('lBtn','a')" ontouchstart="onPress('lBtn','a')">🡰</button>
-            <button id="rBtn" tabindex="-1" onmousedown="onPress('rBtn','d')" ontouchstart="onPress('rBtn','d')">🡲</button>
-            <button id="fwdlBtn" tabindex="-1" class="dgnl" onmousedown="onPress('fwdlBtn','a'); onPress('fwdlBtn','w')" ontouchstart="onPress('fwdlBtn','a'); onPress('fwdlBtn','w')">🡴</button>
-            <button id="fwdrBtn" tabindex="-1" class="dgnl" onmousedown="onPress('fwdrBtn','w'); onPress('fwdrBtn','d')" ontouchstart="onPress('fwdrBtn','w'); onPress('fwdrBtn','d')">🡵</button>
-            <button id="revlBtn" tabindex="-1" class="dgnl" onmousedown="onPress('revlBtn','a'); onPress('revlBtn','s')" ontouchstart="onPress('revlBtn','a'); onPress('revlBtn','s')">🡷</button>
-            <button id="revrBtn" tabindex="-1" class="dgnl" onmousedown="onPress('revrBtn','s'); onPress('revrBtn','d')" ontouchstart="onPress('revrBtn','s'); onPress('revrBtn','d')">🡶</button>
-            <button id="ccw" tabindex="-1" onmousedown="onPress('ccw','q')" ontouchstart="onPress('ccw','q')">↻</button>
-            <button id="cw" tabindex="-1" onmousedown="onPress('cw','e')" ontouchstart="onPress('cw','e')">↺</button>
-            <button id="fast" tabindex="-1">FAST</button>
+            <div id="moveContainer">
+                <h2 id="move">MOVE</h2>
+                <button id="fwdBtn" tabindex="-1" onmousedown="onPress('fwdBtn','w')" ontouchstart="onPress('fwdBtn','w')">🡱</button>
+                <button id="revBtn" tabindex="-1" onmousedown="onPress('revBtn','s')" ontouchstart="onPress('revBtn','s')">🡳</button>
+                <button id="lBtn" tabindex="-1" onmousedown="onPress('lBtn','a')" ontouchstart="onPress('lBtn','a')">🡰</button>
+                <button id="rBtn" tabindex="-1" onmousedown="onPress('rBtn','d')" ontouchstart="onPress('rBtn','d')">🡲</button>
+                <button id="fwdlBtn" tabindex="-1" class="dgnl" onmousedown="onPress('fwdlBtn','a'); onPress('fwdlBtn','w')" ontouchstart="onPress('fwdlBtn','a'); onPress('fwdlBtn','w')">🡴</button>
+                <button id="fwdrBtn" tabindex="-1" class="dgnl" onmousedown="onPress('fwdrBtn','w'); onPress('fwdrBtn','d')" ontouchstart="onPress('fwdrBtn','w'); onPress('fwdrBtn','d')">🡵</button>
+                <button id="revlBtn" tabindex="-1" class="dgnl" onmousedown="onPress('revlBtn','a'); onPress('revlBtn','s')" ontouchstart="onPress('revlBtn','a'); onPress('revlBtn','s')">🡷</button>
+                <button id="revrBtn" tabindex="-1" class="dgnl" onmousedown="onPress('revrBtn','s'); onPress('revrBtn','d')" ontouchstart="onPress('revrBtn','s'); onPress('revrBtn','d')">🡶</button>
+                <button id="ccw" tabindex="-1" onmousedown="onPress('ccw','q')" ontouchstart="onPress('ccw','q')">↻</button>
+                <button id="cw" tabindex="-1" onmousedown="onPress('cw','e')" ontouchstart="onPress('cw','e')">↺</button>
+                <button id="fast" tabindex="-1">FAST</button>
+            </div>
+
+            <div id="forkContainer">
+                <h2 id="p">FORK</h2>
+                <h2 id="o">GRIPPER</h2>
+                <button id="upBtn" tabindex="-1" onmousedown="onPress('upBtn','i')" ontouchstart="onPress('upBtn','i')">Raise</button>
+                <button id="downBtn" tabindex="-1" onmousedown="onPress('downBtn','k')" ontouchstart="onPress('downBtn','k')">Lower</button>
+                <button id="openBtn" tabindex="-1" onmousedown="onPress('openBtn','j')" ontouchstart="onPress('openBtn','j')">Open</button>
+                <button id="closeBtn" tabindex="-1" onmousedown="onPress('closeBtn','l')" ontouchstart="onPress('closeBtn','l')">Close</button>
+            </div>
+
+        <!-- <img src="{{ url_for('static', filename='assets/keymap.png') }}" alt="keymap"> -->
+
+
         </div>
+    </main>
 
-        <div id="forkContainer">
-            <h2 id="p">FORK</h2>
-            <h2 id="o">GRIPPER</h2>
-            <button id="upBtn" tabindex="-1" onmousedown="onPress('upBtn','i')" ontouchstart="onPress('upBtn','i')">Raise</button>
-            <button id="downBtn" tabindex="-1" onmousedown="onPress('downBtn','k')" ontouchstart="onPress('downBtn','k')">Lower</button>
-            <button id="openBtn" tabindex="-1" onmousedown="onPress('openBtn','j')" ontouchstart="onPress('openBtn','j')">Open</button>
-            <button id="closeBtn" tabindex="-1" onmousedown="onPress('closeBtn','l')" ontouchstart="onPress('closeBtn','l')">Close</button>
-        </div>
+    <footer>© 2026 HeavyFalcon678</footer>
 
-    <!-- <img src="{{ url_for('static', filename='assets/keymap.png') }}" alt="keymap"> -->
-
-
-    </div>
 
 </body>
 <script type="application/javascript" src="{{ url_for('static', filename='newscript.js') }}"></script>

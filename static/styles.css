@@ -20,8 +20,16 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #333333;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    box-sizing: border-box;
+    width: 100vw;
 }
 
 @font-face {
@@ -55,9 +63,11 @@ body {
     src: url("fonts/Symbola-AjYx.ttf");
 }
 
+
 header {
     background-color: #231f21;
-    width: 100%;
+    box-sizing: border-box;
+    width: 100vw;
     height: 4.5rem;
     text-align: center;
     display: flex;
@@ -67,7 +77,8 @@ header {
 h1 {
     color: white;
     background-color: #231f21;
-    width: 100%;
+    box-sizing: border-box;
+    width: 100vw;
     margin: 0;
 }
 
@@ -269,6 +280,18 @@ img {
 #closeBtn {
     grid-area: ca;
 }
+
+
+footer {
+    background-color: #231f21;
+    padding: .5rem;
+    font-family: 'Martian Mono', Arial, Helvetica, sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+
 
 /*
 #f58539 - dark orange
