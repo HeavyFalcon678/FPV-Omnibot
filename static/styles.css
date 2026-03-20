@@ -215,7 +215,7 @@ img {
 #controlContainer {
     margin-top: 3rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .dgnl {
@@ -230,6 +230,7 @@ img {
 }
 
 #forkContainer {
+    margin-left: 2rem;
     box-sizing: border-box;
     width: 13rem;
     background-color: #231f21;
@@ -287,10 +288,9 @@ img {
 
 */
 
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 370px) {
     :root {
-        font-size: 12px;
+        font-size: 9px;
     }
 
     #controlContainer {
@@ -302,6 +302,7 @@ img {
 
     #forkContainer {
         margin-top: 1.5rem;
+        margin-left: 0;
         width: 29.5rem;
 
         grid-template-columns: .75rem 5rem 5rem 2.5rem 5rem 5rem;
@@ -340,7 +341,92 @@ img {
     }
 }
 
-@media screen and (min-width: 480px) {
+
+
+
+@media screen and (min-width: 370px) and (max-width: 550px) {
+    :root {
+        font-size: 12px;
+    }
+
+    #controlContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #forkContainer {
+        margin-top: 1.5rem;
+        margin-left: 0;
+        width: 29.5rem;
+
+        grid-template-columns: .75rem 5rem 5rem 2.5rem 5rem 5rem;
+        grid-template-rows: .2fr 1.625rem 5rem;
+        gap: .5rem;
+
+        grid-template-areas:
+            "va ua ya ma ta ra"
+            "va ea ea ma ba ba"
+            "va xa ka ma qa wa";
+
+        background-color: #231f21;
+        border-radius: 3.125rem;
+    }
+
+    /* #forkContainer * {
+        display: none;
+    } */
+    #p {
+        grid-area: ea;
+    }
+    #o {
+        grid-area: ba;
+    }
+    #upBtn {
+        grid-area: xa;
+    }
+    #downBtn {
+        grid-area: ka;
+    }
+    #openBtn {
+        grid-area: qa;
+    }
+    #closeBtn {
+        grid-area: wa;
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 750px) {
+    :root {
+        font-size: 12px;
+    }
+
+        #forkContainer {
+
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .2fr 1.625rem 5rem 1fr 1.625rem 5rem .2fr;
+        gap: .5rem;
+
+        grid-template-areas:
+            "ea ea"
+            "ka ka"
+            "ta qa"
+            "za za"
+            "sa sa"
+            "ma ca"
+            "pa pa";
+
+        background-color: #231f21;
+        border-radius: 3.125rem;
+    }
+}
+
+
+
+
+@media screen and (min-width: 750px) {
 
 
     #forkContainer {
@@ -362,6 +448,5 @@ img {
         background-color: #231f21;
         border-radius: 3.125rem;
     }
-
-
 }
+

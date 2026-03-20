@@ -55,9 +55,9 @@ def handle_info():
         elif json["info"] == "Backward Right":
             sendToArduino("1, 0, 1, 0, 0, 1, 1, 1")
         elif json["info"] == "CW":
-            sendToArduino("1, 0, 1, 0, 1, 0, 1, 1")
-        elif json["info"] == "CCW":
             sendToArduino("0, 1, 0, 1, 0, 1, 1, 1")
+        elif json["info"] == "CCW":
+            sendToArduino("1, 0, 1, 0, 1, 0, 1, 1")
         elif json["info"] == "None":
             sendToArduino("1, 1, 1, 1, 1, 1, 1, 1")
 
