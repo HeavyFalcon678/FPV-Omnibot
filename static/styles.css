@@ -32,6 +32,11 @@ main {
     width: 100vw;
 }
 
+#camera {
+    border-radius: .625rem;
+    order: 2;
+}
+
 @font-face {
     font-family: "Gotham";
     src: url("fonts/Gotham-Medium.woff2") format("woff2");
@@ -115,6 +120,7 @@ button {
 #moveContainer {
     box-sizing: border-box;
     width: 29.5rem;
+    height: 20rem;
     padding: 1.25rem;
     padding-top: .5rem;
     display: grid;
@@ -244,6 +250,7 @@ img {
     margin-left: 2rem;
     box-sizing: border-box;
     width: 13rem;
+    height: 20rem;
     background-color: #231f21;
     padding: 1.25rem;
     padding-top: .5rem;
