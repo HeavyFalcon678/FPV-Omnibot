@@ -27,6 +27,13 @@ rf8.value = 1
 app = Flask(__name__)
 
 picam2 = Picamera2()
+
+config = picam2.create_video_configuration(
+    main={"size": (640, 480), "format": "RGB888"}
+)
+
+picam2.configure(config)
+
 picam2.start()
 
 
@@ -37,7 +44,12 @@ def generateFrames():
         frame = cv2.flip(frame, -1)
         ret, buffer = cv2.imencode('.jpg', frame)
         frame = buffer.tobytes()
-        yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        yield (
+            b'--frame\r\n'
+            b'Content-Type: image/jpeg\r\n\r\n' +
+            frame +
+            b'\r\n'
+        )
 
 
 @app.route('/')
