@@ -29,7 +29,7 @@ app = Flask(__name__)
 picam2 = Picamera2()
 
 config = picam2.create_video_configuration(
-    main={"size": (640, 480), "format": "RGB888"}
+    main={"size": (320, 240), "format": "RGB888"}
 )
 
 picam2.configure(config)
@@ -40,9 +40,8 @@ picam2.start()
 def generateFrames():
     while True:
         frame = picam2.capture_array()
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         frame = cv2.flip(frame, -1)
-        ret, buffer = cv2.imencode('.jpg', frame)
+        ret, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 70])
         frame = buffer.tobytes()
         yield (
             b'--frame\r\n'
@@ -54,7 +53,7 @@ def generateFrames():
 
 @app.route('/')
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
 
 
 @app.route('/video')
@@ -140,4 +139,4 @@ def sendToArduino(signal):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    app.run(host='0.0.0.0', port=5000, debug=False, use_reloader=False)
