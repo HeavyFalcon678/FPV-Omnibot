@@ -323,11 +323,18 @@ footer {
         font-size: 9px;
     }
 
+    #camera {
+        border-radius: .625rem;
+        order: 1;
+        width: 29.5rem;
+    }
+
     #controlContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        order: 2;
     }
 
     #forkContainer {
@@ -346,6 +353,7 @@ footer {
 
         background-color: #231f21;
         border-radius: 3.125rem;
+        order: 3;
     }
 
     /* #forkContainer * {
@@ -379,11 +387,18 @@ footer {
         font-size: 12px;
     }
 
+    #camera {
+        border-radius: .625rem;
+        order: 1;
+        width: 29.5rem;
+    }
+
     #controlContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        order: 2;
     }
 
     #forkContainer {
@@ -402,6 +417,7 @@ footer {
 
         background-color: #231f21;
         border-radius: 3.125rem;
+        order: 3;
     }
 
     /* #forkContainer * {
@@ -432,7 +448,13 @@ footer {
         font-size: 12px;
     }
 
-        #forkContainer {
+    #camera {
+        border-radius: .625rem;
+        order: 1;
+        width: 29.5rem;
+    }
+
+    #forkContainer {
 
 
         grid-template-columns: 1fr 1fr;
@@ -477,6 +499,7 @@ footer {
 
         background-color: #231f21;
         border-radius: 3.125rem;
+        height: 20rem;
     }
 }
 
