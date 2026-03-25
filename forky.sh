@@ -25,6 +25,25 @@ if [ "$1" = "install" ]; then
             echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
         fi
         source ~/.bashrc
+
+
+        touch /etc/systemd/system/forky.service
+        sudo tee /etc/systemd/system/forky.service > /dev/null << EOF
+[Unit]
+Description=Forky Startup Script
+After=network.target               
+[Service]
+ExecStart=/home/$(whoami)/.local/bin/forky run
+WorkingDirectory=/home/$(whoami)
+User=$(whoami)
+Restart=always
+[Install]
+WantedBy=multi-user.target
+EOF
+        sudo systemctl daemon-reload
+        sudo systemctl enable forky.service
+        sudo systemctl start forky.service
+
     fi
 
     cd src
@@ -40,23 +59,3 @@ else
 fi
 
 cd ~
-
-
-
-
-
-
-# cd ~
-
-# if [ -d "~/src" ]; then
-#     echo "already installed"
-
-# else
-#     wget https://github.com/HeavyFalcon678/FPV-Omnibot/raw/main/software.zip
-#     unzip -d src software.zip
-#     rm software.zip
-# fi
-
-# cd src
-
-
