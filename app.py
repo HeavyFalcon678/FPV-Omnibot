@@ -68,7 +68,10 @@ def video():
 
 @app.route('/camera-status')
 def status():
-    return int(cameraConnected)
+    if (cameraConnected):
+        return "connected"
+    else:
+        return "not connected"
 
 
 

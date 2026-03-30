@@ -56,13 +56,14 @@ function toggleSpeed() {
 
 async function checkCamera() {
   try {
-    const res = await fetch('/camera-status');
-    const data = await res.json();
+    const data = await fetch('/camera-status');
 
-    if (data.camera) {
-      document.getElementById("camera").hidden = true;
-    } else {
+    if (data.camera == "connected") {
+        console.log("connected");
       document.getElementById("camera").hidden = false;
+    } else {
+        console.log("not connected")
+      document.getElementById("camera").hidden = true;
     }
 
     return data.camera;
