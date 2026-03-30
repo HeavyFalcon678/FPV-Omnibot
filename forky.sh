@@ -41,13 +41,10 @@ if [ "$1" = "install" ]; then
 Description=Forky Startup Script
 After=network.target               
 [Service]
-ExecStart=/home/$(whoami)/.local/bin/forky run
+ExecStart=/usr/bin/python3 /home/pi/src/app.py
 WorkingDirectory=/home/$(whoami)
 User=$(whoami)
-Restart=no
-StandardOutput=tty
-StandardError=tty
-TTYPath=/dev/tty1
+Restart=always
 [Install]
 WantedBy=multi-user.target
 EOF
