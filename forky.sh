@@ -27,7 +27,7 @@ if [ "$1" = "install" ]; then
         source ~/.bashrc
 
 
-        touch /etc/systemd/system/forky.service
+        sudo touch /etc/systemd/system/forky.service
         sudo tee /etc/systemd/system/forky.service > /dev/null << EOF
 [Unit]
 Description=Forky Startup Script
@@ -36,17 +36,22 @@ After=network.target
 ExecStart=/home/$(whoami)/.local/bin/forky run
 WorkingDirectory=/home/$(whoami)
 User=$(whoami)
-Restart=always
+Restart=no
+StandardOutput=tty
+StandardError=tty
+TTYPath=/dev/tty1
 [Install]
 WantedBy=multi-user.target
 EOF
         sudo systemctl daemon-reload
         sudo systemctl enable forky.service
         sudo systemctl start forky.service
-
+        echo
+        ip_address=$(hostname -I | awk '{print $1}')
+        echo "IP ADDRESS IS $ip_address"
     fi
 
-    cd src
+    
 
 
 elif [ "$1" = "run" ]; then
@@ -55,7 +60,7 @@ elif [ "$1" = "run" ]; then
     python app.py
 
 else
-    echo "Helping"
+    echo "Run this program with: forky run"
 fi
 
 cd ~
