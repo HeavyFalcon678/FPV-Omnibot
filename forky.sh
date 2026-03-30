@@ -13,6 +13,7 @@ if [ "$1" = "install" ]; then
         sudo apt update
         sudo apt upgrade -y
         pip install opencv-python --break-system-packages
+        pip install flask --break-system-packages
         wget https://github.com/HeavyFalcon678/FPV-Omnibot/raw/main/software.zip
         unzip -d src software.zip
         rm software.zip
@@ -46,9 +47,7 @@ EOF
         sudo systemctl daemon-reload
         sudo systemctl enable forky.service
         sudo systemctl start forky.service
-        echo
-        ip_address=$(hostname -I | awk '{print $1}')
-        echo "IP ADDRESS IS $ip_address"
+
     fi
 
     
