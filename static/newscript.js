@@ -33,6 +33,7 @@ let speedToggle = document.getElementById("fast");
 speedToggle.addEventListener("click", toggleSpeed);
 
 setInterval(handleControls, 50);
+setInterval(checkCamera, 2000);
 
 
 // change the speed
@@ -50,6 +51,25 @@ function toggleSpeed() {
         previousData.fast = false;
         currentData.fast = true;
     }
+}
+
+
+async function checkCamera() {
+  try {
+    const res = await fetch('/camera-status');
+    const data = await res.json();
+
+    if (data.camera) {
+      document.getElementById("camera").hidden = true;
+    } else {
+      document.getElementById("camera").hidden = false;
+    }
+
+    return data.camera;
+  } catch (err) {
+    console.error("Error checking camera:", err);
+    return false;
+  }
 }
 
 

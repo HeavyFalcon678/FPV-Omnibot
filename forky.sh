@@ -12,11 +12,15 @@ if [ "$1" = "install" ]; then
     else
         sudo apt update
         sudo apt upgrade -y
+        sudo apt install -y libcap-dev
+        sudo apt install -y python3-libcamera
+        sudo apt install -y python3-kms++
         echo Hello
-        sudo apt install python3-pip
+        sudo apt install python3-pip -y
         echo Test
         pip install opencv-python --break-system-packages
         pip install flask --break-system-packages
+        pip install picamera2 --break-system-packages
         wget https://github.com/HeavyFalcon678/FPV-Omnibot/raw/main/software.zip
         unzip -d src software.zip
         rm software.zip

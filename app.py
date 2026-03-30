@@ -26,15 +26,20 @@ rf8.value = 1
 
 app = Flask(__name__)
 
-picam2 = Picamera2()
+cameraConnected = False
 
-config = picam2.create_video_configuration(
-    main={"size": (640, 480), "format": "RGB888"}
-)
+try:
+    picam2 = Picamera2()
 
-picam2.configure(config)
+    config = picam2.create_video_configuration(
+        main={"size": (640, 480), "format": "RGB888"}
+    )
 
-picam2.start()
+    picam2.configure(config)
+
+    picam2.start()
+except Exception:
+    cameraConnected = True
 
 
 def generateFrames():
@@ -60,6 +65,10 @@ def index():
 def video():
     return Response(generateFrames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+@app.route('/camera-status')
+def status():
+    return int(cameraConnected)
 
 
 

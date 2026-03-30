@@ -56,6 +56,10 @@ When you're finished, insert the SD card into the RPI and power it up. Wait a mi
 
 `wget https://github.com/HeavyFalcon678/FPV-Omnibot/raw/main/forky.sh && . forky.sh install && . forky.sh run`
 
+finally, run `echo "$(hostname -I | awk '{print $1}'):5000"` and write down what it prints. This is the url your web interface will be running on. Then reboot the PI and you're good to go.
+
+On the hardware side, wire it up like this:
+
 ![description](images/pi_wiring.jpg)
 
 All RPI pin names are in BCM
@@ -73,8 +77,10 @@ GPIO5  - D11
 GND - GND
 ```
 
+And finally, upload `arduino_code/pi.ino` and `arduino_code/config.h` to the arduino using [Crunchlabs IDE](https://ide.crunchlabs.com/editor/omnibot-forklift/3/StockCode/StockCode.ino).
+
 ### Camera
 
 Follow the instructions to setup the Raspberry Pi, and then connect the ribbon cable to the designated CSI connectors.
 
-To mount the camera, print the `picamera3_mount.step` file and fix the camera onto the mount with the M2 nuts and bolts.You can add the mount to the top screw of the servo.
+To mount the camera, print the `picamera3_mount.step` file and fix the camera onto the mount with the M2 nuts and bolts. You can add the mount to the top screw of the servo. The software is the same
