@@ -12,6 +12,7 @@ if [ "$1" = "install" ]; then
     else
         sudo apt update
         sudo apt upgrade -y
+        sudo apt install python3-pip
         pip install opencv-python --break-system-packages
         pip install flask --break-system-packages
         wget https://github.com/HeavyFalcon678/FPV-Omnibot/raw/main/software.zip
