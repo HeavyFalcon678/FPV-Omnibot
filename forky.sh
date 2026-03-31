@@ -12,6 +12,7 @@ if [ "$1" = "install" ]; then
     else
         sudo apt update
         sudo apt upgrade -y
+        sudo apt install -y libgl1
         sudo apt install -y libcap-dev
         sudo apt install -y python3-libcamera
         sudo apt install -y python3-kms++

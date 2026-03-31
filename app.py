@@ -38,8 +38,9 @@ try:
     picam2.configure(config)
 
     picam2.start()
-except Exception:
     cameraConnected = True
+except Exception:
+    pass
 
 
 def generateFrames():

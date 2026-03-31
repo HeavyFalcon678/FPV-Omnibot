@@ -250,7 +250,7 @@ img {
     margin-left: 2rem;
     box-sizing: border-box;
     width: 13rem;
-    height: 20rem;
+    /* height: 20rem; */
     background-color: #231f21;
     padding: 1.25rem;
     padding-top: .5rem;
@@ -319,14 +319,26 @@ footer {
 */
 
 @media screen and (max-width: 370px) {
+
+    
     :root {
         font-size: 9px;
     }
 
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;  /* center children horizontally */
+    }
+
+
     #camera {
-        border-radius: .625rem;
+        border-radius: 3.125rem;;
         order: 1;
         width: 29.5rem;
+        align-self: center;
+        margin-bottom: -1rem;
     }
 
     #controlContainer {
@@ -341,10 +353,12 @@ footer {
         margin-top: 1.5rem;
         margin-left: 0;
         width: 29.5rem;
+                height: 9.5rem;
 
         grid-template-columns: .75rem 5rem 5rem 2.5rem 5rem 5rem;
         grid-template-rows: .2fr 1.625rem 5rem;
         gap: .5rem;
+        margin-bottom: 2rem;
 
         grid-template-areas:
             "va ua ya ma ta ra"
@@ -387,10 +401,20 @@ footer {
         font-size: 12px;
     }
 
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;  /* center children horizontally */
+    }
+
+
     #camera {
-        border-radius: .625rem;
+        border-radius: 3.125rem;;
         order: 1;
         width: 29.5rem;
+        align-self: center;
+        margin-bottom: -1rem;
     }
 
     #controlContainer {
@@ -405,6 +429,9 @@ footer {
         margin-top: 1.5rem;
         margin-left: 0;
         width: 29.5rem;
+        box-sizing: border-box;
+        height: 9.5rem;
+        margin-bottom: 2rem;
 
         grid-template-columns: .75rem 5rem 5rem 2.5rem 5rem 5rem;
         grid-template-rows: .2fr 1.625rem 5rem;
@@ -448,41 +475,23 @@ footer {
         font-size: 12px;
     }
 
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;  /* center children horizontally */
+    }
+
+
     #camera {
-        border-radius: .625rem;
-        order: 1;
-        width: 29.5rem;
-    }
-
-    #forkContainer {
-
-
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: .2fr 1.625rem 5rem 1fr 1.625rem 5rem .2fr;
-        gap: .5rem;
-
-        grid-template-areas:
-            "ea ea"
-            "ka ka"
-            "ta qa"
-            "za za"
-            "sa sa"
-            "ma ca"
-            "pa pa";
-
-        background-color: #231f21;
         border-radius: 3.125rem;
+        order: 0;
+        width: 44.5rem;
+        align-self: center;
     }
-}
-
-
-
-
-@media screen and (min-width: 750px) {
-
 
     #forkContainer {
-
+        margin-bottom: 2rem;
 
         grid-template-columns: 1fr 1fr;
         grid-template-rows: .2fr 1.625rem 5rem 1fr 1.625rem 5rem .2fr;
@@ -503,3 +512,100 @@ footer {
     }
 }
 
+
+
+
+@media screen and (min-width: 750px) {
+    :root {
+        font-size: 12px;
+    }
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;  /* center children horizontally */
+    }
+
+
+    #camera {
+        border-radius: 3.125rem;
+        order: 0;
+        width: 44.5rem;
+        align-self: center;
+    }
+
+    #forkContainer {
+
+        margin-bottom: 2rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .2fr 1.625rem 5rem 1fr 1.625rem 5rem .2fr;
+        gap: .5rem;
+
+        grid-template-areas:
+            "ea ea"
+            "ka ka"
+            "ta qa"
+            "za za"
+            "sa sa"
+            "ma ca"
+            "pa pa";
+
+        background-color: #231f21;
+        border-radius: 3.125rem;
+        height: 20rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    :root {
+        font-size: 16px;
+    }
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row; 
+        justify-content: center;
+        /* align-items: center; */
+    }
+
+    #controlContainer {
+        display: contents;
+    }
+
+    #camera {
+        border-radius: 3.125rem;
+        order: 1;
+        height: 20rem;
+        width: auto;
+        align-self: center;
+    }
+
+    #forkContainer {
+        order: 2;
+        margin-bottom: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .2fr 1.625rem 5rem 1fr 1.625rem 5rem .2fr;
+        gap: .5rem;
+        width: 29.5rem;
+        padding-left: 8.25rem;
+        padding-right: 8.25rem;
+
+        grid-template-areas:
+            "ea ea"
+            "ka ka"
+            "ta qa"
+            "za za"
+            "sa sa"
+            "ma ca"
+            "pa pa";
+
+        background-color: #231f21;
+        border-radius: 3.125rem;
+        height: 20rem;
+    }
+
+    #moveContainer {
+        order: 0;
+        margin-right: 2rem;
+    }
+}
