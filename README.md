@@ -66,7 +66,7 @@ finally, run `echo "$(hostname -I | awk '{print $1}'):5000"` and write down what
 
 On the hardware side, wire it up like this:
 
-![description](images/pi_wiring.jpg)
+![description](media/pi_wiring.jpg)
 
 All RPI pin names are in BCM
 
