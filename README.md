@@ -86,3 +86,33 @@ And finally, upload `arduino_code/pi.ino` and `arduino_code/config.h` to the ard
 Follow the instructions to setup the Raspberry Pi, and then connect the ribbon cable to the designated CSI connectors.
 
 To mount the camera, print the `picamera3_mount.step` file and fix the camera onto the mount with the M2 nuts and bolts. You can add the mount to the top screw of the servo. The software is the same, `arduino_code/pi.ino`.
+
+## Usage
+
+### No RPI
+
+UP + L -> Open Gripper
+UP + R -> Close Gripper
+DN + L -> Toggle Slow Mode
+
+### With RPI
+
+The UI is pretty straightforward, just go to port 5000 on the ip address of your pi and all the buttons are self explanatory. On desktop there are some keyboard shortcuts though:
+
+```
+W -> Up
+S -> Down
+A -> Left
+D -> Right
+Q -> Rotate CCW
+E -> Rotate CW
+W+A -> Diagonal Left Up
+W+D -> Diagonal Right Up
+S+A -> Diagonal Left Down
+S+D -> Diagonal Right Down
+SPACE -> Toggle Fast/Slow
+I -> Raise Fork
+K -> Lower Fork
+J -> Open Gripper
+L -> Close Gripper
+```
