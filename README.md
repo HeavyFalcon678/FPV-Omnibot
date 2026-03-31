@@ -52,7 +52,8 @@ To allow as many people as possible to upgrade their omnibots, I have added diff
 
 ### Gripper
 
-Just put it together, it's pretty simple. Insert the heatsets, and the screw teh screws in. Also make sure you screw the base to the mount _before_ you attach the arms, or you'll have to redo them.
+Just put it together, it's pretty simple. Insert the heatsets, and the screw the screws in. Also make sure you screw the base to the mount _before_ you attach the arms, or you'll have to redo them.
+For wiring, connect the servo to power and ground, and the signal wire to pin 10 on the Arduino.
 
 ### RPI
 
