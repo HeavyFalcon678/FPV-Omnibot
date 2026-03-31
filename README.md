@@ -2,7 +2,7 @@
 
 [![Watch the video](https://img.youtube.com/vi/OyF7Ex0_O2U/0.jpg)](https://www.youtube.com/watch?v=OyF7Ex0_O2U)
 
-**Click the image above for a video demo ^^^.**
+**Click the image above for a video demo ^^^. The .mp4 video is also in /media**
 
 This a hack of the Crunch Labs Hack Pack Box #011 - Omnibot Forklift that unlocks its full potential and allows you do do fun things like:
 
