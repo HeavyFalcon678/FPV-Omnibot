@@ -48,6 +48,8 @@ To allow as many people as possible to upgrade their omnibots, I have added diff
 
 ### Gripper
 
+Just put it together, it's pretty simple. Insert the heatsets, and the screw teh screws in. Also make sure you screw the base to the mount _before_ you attach the arms, or you'll have to redo them.
+
 ### RPI
 
 First set up the RPI as normal with the Raspberry Pi Imager. I'd recommend using Raspberry Pi OS Lite (64-bit), but you can use whatever you'd like. Make sure to write down your hostname, username, and password. MAKE SURE to **connect your pi to WiFi** and **enable SSH with password authentication**.
