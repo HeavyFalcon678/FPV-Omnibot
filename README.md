@@ -96,9 +96,11 @@ To mount the camera, print the `picamera3_mount.step` file and fix the camera on
 
 ### No RPI
 
+```
 UP + L -> Open Gripper
 UP + R -> Close Gripper
 DN + L -> Toggle Slow Mode
+```
 
 ### With RPI
 
